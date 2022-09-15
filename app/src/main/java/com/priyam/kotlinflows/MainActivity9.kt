@@ -27,7 +27,6 @@ class MainActivity9 : AppCompatActivity() {
             producer()
                 .flowOn(Dispatchers.IO)
                 .collect {
-                    delay(1500)
                     Log.d("Thread: collect", "Collector thread  = ${Thread.currentThread().name}")
                 }
 
