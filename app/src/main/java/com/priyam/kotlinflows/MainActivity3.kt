@@ -17,7 +17,7 @@ class MainActivity3 : AppCompatActivity() {
         val job = GlobalScope.launch {
             val data: Flow<Int> = producer()
             data.collect{
-                Log.d( "onCreate: " , it.toString())
+                Log.d( "consumer: " , it.toString())
             }
         }
 
@@ -32,6 +32,7 @@ class MainActivity3 : AppCompatActivity() {
         val list = listOf(1, 2, 3,4,5,6,7,8,9,10)
         list.forEach{
             delay(1000)
+            Log.d("producer: " , it.toString())
             emit(it)
         }
     }
