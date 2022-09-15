@@ -14,7 +14,7 @@
         android:theme="@style/Theme.KotlinFlows"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity8"
+            android:name=".MainActivity7"
             android:exported="false" />
         <activity
             android:name=".MainActivity6"
@@ -35,7 +35,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity7"
+            android:name=".MainActivity8"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
