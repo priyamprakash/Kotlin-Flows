@@ -6,10 +6,7 @@ import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlin.system.measureTimeMillis
 
@@ -20,13 +17,15 @@ class MainActivity8 : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             val time = measureTimeMillis {
                 producer()
+                    .buffer(3)
                     .collect {
                         delay(1500)
                         Log.d("onCreate: collect", it.toString())
                     }
             }
 
-            Log.d("onCreate: 2500*5 = ", time.toString())
+//            Log.d("onCreate: no buffer = 12596", time.toString())
+            Log.d("onCreate: buffer = 9127", time.toString())
 
         }
 
