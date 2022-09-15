@@ -21,16 +21,17 @@ class MainActivity2 : AppCompatActivity() {
 
     }
 
-    fun producer(){
+    fun producer() {
         CoroutineScope(Dispatchers.Main).launch {
             channel.send(1)
             channel.send(2)
         }
     }
-    fun consumer(){
+
+    fun consumer() {
         CoroutineScope(Dispatchers.Main).launch {
-            Log.d("consumer:" , channel.receive().toString())
-            Log.d("consumer:" , channel.receive().toString())
+            Log.d("consumer:", channel.receive().toString())
+            Log.d("consumer:", channel.receive().toString())
         }
     }
 }
