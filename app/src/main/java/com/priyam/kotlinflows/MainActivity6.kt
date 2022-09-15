@@ -9,26 +9,18 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
+/*** first, toList are terminal operators. Therefore, they are suspend functions
+ */
 class MainActivity6 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
         GlobalScope.launch(Dispatchers.Main) {
-            producer()
-                .onStart {
-                    emit(-1)
-                    Log.d("onCreate: onStart", "Starting Out")
-                }
-                .onCompletion {
-                    emit(6)
-                    Log.d("onCreate: onCompletion", "Completed")
-                }
-                .onEach {
-                    Log.d("onCreate: onEach", "About to emit - ${it.toString()}")
-                }
-                .collect {
-                    Log.d("onCreate: collect", "${it.toString()}")
-                }
+            val result1 = producer().first()
+            Log.d("onCreate: result1 first" , result1.toString())
+            val result2 = producer().toList()
+            Log.d("onCreate: result2 list" , result2.toString())
+
         }
 
     }
