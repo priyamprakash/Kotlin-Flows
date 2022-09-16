@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 /**
- * Implement try catch 
+ * Implement try catch
  */
 class MainActivity11 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
