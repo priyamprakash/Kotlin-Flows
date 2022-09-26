@@ -23,6 +23,8 @@ class MainActivity11 : AppCompatActivity() {
                    .collect{
                        Log.d("TAG 11", "onCreate: Collector Thread - ${Thread.currentThread().name}")
                    }
+                   throw  Exception("Error in collector")
+
            }
            catch (e: Exception){
                Log.d("TAG 11",  e.message.toString())
@@ -39,7 +41,7 @@ class MainActivity11 : AppCompatActivity() {
                 delay(1000)
                 Log.d("Thread: producer", "Emitter thread  = ${Thread.currentThread().name}")
                 emit(it)
-                throw  Exception("Error in Emitter")
+//                throw  Exception("Error in Emitter")
             }
         }
     }
