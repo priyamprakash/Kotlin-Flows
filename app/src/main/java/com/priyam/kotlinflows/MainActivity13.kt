@@ -52,3 +52,6 @@ class MainActivity13 : AppCompatActivity() {
         return mutableSharedFlow
     }
 }
+
+
+//Using this late comer consumer gets "one" previous emitted value
